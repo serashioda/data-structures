@@ -1,0 +1,47 @@
+  
+ ```            1.5
+               /   \
+              1     5
+             /    /  \
+            0    3    7
+                /  \
+               2    4
+              /
+            1.75     
+```
+
+[Sera]
+[1.5, 5, 3, 2, 1.75]  
+would that be what I want to track?
+
+[TA]
+well, you would notice the balance was out of whack at 5, so the node before it in the list is the gp
+
+[Sera]
+how do I know the balance is out of wack when I get to 5 already?
+
+[TA] 
+well, here is how your insert algorithm will work now:  
+insert the node as normal, but building a list on the way down
+then, pop a node from the list and check the balance
+if the absolute value of the balance is 2 or more, you know you need to rotate 
+rotate if needed
+then proceed to pop the next node from the list, and so on until the list is empty 
+then you are finally done inserting a node into the self balancing tree
+
+[Sera] 
+ah
+so define a new list 
+like balance_lst = [] (edited)
+
+[TA]
+yes
+and everytime you make a comparison, add the node to the list 
+so [1.5, 5, 3, 2]  
+then pop 2 off, check its balance
+it is 1, that's fine
+ok
+pop 3, check balance, it is 1, that is fine 
+pop 5 check balance, it is 2, oh no! so rotate to fix it 
+then after that, pop 1.5, check balance, it should now be -1, and that is fine
+list is empty, insertion is over
